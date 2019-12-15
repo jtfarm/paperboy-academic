@@ -12,13 +12,13 @@ echo 'export SLACK_TOKEN=xoxb-xxxxxxxxxx-xxxxxxxxxxx-xxxxxxxxxxxxx' >> ~/.zshenv
 
 The text files are populated as follows:
 
-authors.txt specifies authors you want to search for. Each line should have one author. Be sure to include any variations such as middle initial in a new line. For Example, authors.txt may contain the following lines:
-James Farmer
-James T Farmer
-J Farmer
-JT Farmer
-Darian Hartsell
-Darian M Hartsell
+authors.txt specifies authors you want to search for. Each line should have one author. Be sure to include any variations such as middle initial in a new line. For Example, authors.txt may contain the following lines:\n
+James Farmer\n
+James T Farmer\n
+J Farmer\n
+JT Farmer\n
+Darian Hartsell\n
+Darian M Hartsell\n
 
 The period after initials should not be included, as the search program will remove periods. i.e., an article with author "J.T. Farmer" will be matched with the line "JT Farmer" from authors.txt. I highly recommend searching Google scholar for any authors you want to track to see if they often use a middle initial.
 
