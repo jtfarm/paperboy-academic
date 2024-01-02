@@ -1,43 +1,49 @@
-# paperboy-academic
-This code searches RSS feeds for keywords and authors, then pushes the matching articles in a readable format to your chosen slack channel. It should be straightforward to push articles to another medium such as email or basecamp.
+# Paperboy-LFL
 
-For this code to work, you need to populate some text files and create the app in your slack workspace to obtain a slack bot token.
-Afterwards, you can run the code by executing distributor.py in a python environment. I personally use Windows Scheduler to have a lab computer execute a batch file every morning.
+## Overview
+Paperboy-LFL is an automated tool for monitoring academic publications. It searches RSS feeds for specified keywords and authors, then pushes matching articles in a readable format to a designated Slack channel. This automation is fully handled via GitHub Actions.
 
-You can create the app in your slack workspace by going to https://api.slack.com/apps. Be sure to enable the slack bot user. After installing the app to your workspace, copy the bot user token from the OAuth & Permissions tab. Next, add the token to your system environment variables using the following command:
-Windows cmd line:
-setx SLACK_TOKEN xoxb-xxxxxxxxxx-xxxxxxxxxxx-xxxxxxxxxxxxx
-MacOS terminal:
-echo 'export SLACK_TOKEN=xoxb-xxxxxxxxxx-xxxxxxxxxxx-xxxxxxxxxxxxx' >> ~/.zshenv
+## Getting Started
 
-The text files are populated as follows:
+### Prerequisites
+- A GitHub account
+- A Slack workspace with a bot user
 
-authors.txt specifies authors you want to search for. Each line should have one author. Be sure to include any variations such as middle initial in a new line. For Example, authors.txt may contain the following lines:
-James Farmer
-James T Farmer
-J Farmer
-JT Farmer
-Darian Hartsell
-Darian M Hartsell
+### Setup
 
-The period after initials should not be included, as the search program will remove periods. i.e., an article with author "J.T. Farmer" will be matched with the line "JT Farmer" from authors.txt. I highly recommend searching Google scholar for any authors you want to track to see if they often use a middle initial.
+#### Slack Bot User
+1. Create an app in your Slack workspace by visiting [Slack API](https://api.slack.com/apps).
+2. Enable the Slack bot user.
+3. Install the app to your workspace and copy the bot user token from the 'OAuth & Permissions' tab.
+4. Add the bot user token as a secret in your GitHub repository (named `SLACK_TOKEN`).
 
-feeds.txt specifies the journals you want to pull from. Any URL that leads to an RSS feed can be used. Obtain the URLs for your desired RSS feeds from a google search. Each URL should be on a new line. As an example, feeds.txt may contain the following lines
-https://arxiv.org/rss/quant-ph
-http://www.nature.com/nphys/current_issue/rss
-http://feeds.aps.org/rss/recent/prl.xml
+#### GitHub Repository
+1. Fork the Paperboy-LFL repository to your GitHub account.
+2. Clone the forked repository to your local machine for configuration.
 
-keywords.txt specifies the keywords, each one on a new line. The matches must be exact, though capitalization does not matter. i.e., qubit and QuBiT are equivalent, but quantum limited and quantum-limited are not. Example lines for keywords.txt
-quantum heat engine
-photon pump
-correlated noise
-fault-tolerant
-tunable-coupling
-quantum channel
-fluxonium
-transmon
-nanobridge
-andreev
+#### Configuration Files
+- `authors.txt`: List authors to track. Include variations of names with/without middle initials.
+- `feeds.txt`: URLs of RSS feeds to monitor.
+- `keywords.txt`: Keywords to search within the articles.
+- `channel.txt`: Slack channel ID where the articles will be posted.
 
-Finally, channel.txt should contain one line: the channel ID for the slack channel you wish to post to. This is not the name of the channel, but rather a 9 digit alphanumeric identifier. If you open slack in a web browser, this id is visible in the URL. Alternatively, just google how to find your slack channel ID.
-AS AN IMPORTANT NOTE: don't blow up your colleagues slack with repeated messages while youre getting the keywords and urls sorted out. You can just call editor or journalist independently, or create a private slack channel for testing.
+#### Updating Configuration Files
+1. Modify `authors.txt`, `feeds.txt`, `keywords.txt`, and `channel.txt` as needed in your forked repository.
+2. Commit and push the changes to your GitHub repository.
+
+### GitHub Actions
+- The workflow is set up in `.github/workflows/schedule.yml`.
+- The action is scheduled to run at a specified time every day.
+- On execution, the script `distributor.py` processes the RSS feeds and sends the relevant articles to the specified Slack channel.
+
+## Contributing
+To add more keywords, feeds, or authors:
+1. Fork the repository.
+2. Modify `keywords.txt`, `feeds.txt`, or `authors.txt` as needed.
+3. Commit and push your changes to your forked repository.
+4. Create a pull request for your changes to be reviewed and merged into the main repository.
+
+## Important Notes
+- Avoid overwhelming your Slack channel with repeated messages during initial setup and testing. Consider using a private channel for testing.
+- Follow best practices when making contributions to the project via pull requests.
+
