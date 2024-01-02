@@ -4,14 +4,27 @@ Paramp
 JPA
 JPC
 qubit
+transmon
+fluxonium
 squeezing
 squeezed
 quantum limit
+parametric-amplifier
+circuit QED
+quantum channel
 quantum limited
+quantum-limited
 phase preserving
 phase sensitive
 quantum feedback
 coherence times
-random walk
-quantum machine learning
-boltzmann machine
+fault-tolerant
+quantum error correction
+hybrid quantum
+parametric amplification
+dynamical decoupling
+correlated noise
+quantum thermodynamics
+quasiparticle
+andreev
+cQED
