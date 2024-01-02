@@ -1,6 +1,3 @@
-# exclude everything
-userTextFiles/*
-
 # exclude cache files
 *.pyc
 
