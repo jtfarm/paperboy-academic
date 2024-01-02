@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sun Dec 9 14:36:24 2019
+Updated on Jan 2 2024
 
-@author: James Farmer
+@author: James Farmer, Sadman Ahmed Shanto
 
-Version 1.0
+Version 2.0
 ChangeLog:
     
 Calls an instance of printing_press.Editor and sends the articles to the Slack
@@ -14,7 +15,6 @@ channel ID specified in the accompanying text file 'channel.txt'
 #### IMPORTANT ####
 This code requires you to have already registered a new Slack App, and added
 the bot user token to your system environment variables. See documentation at
-https://github.com/jtfarm/paperboy-academic for details.
 """
 nKeywordMatches = 2
 files = {

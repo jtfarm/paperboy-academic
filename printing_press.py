@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sun Dec 8 09:12:38 2019
+Updated on Jan 2 2020
 
-@author: James Farmer
+@author: James Farmer, Sadman Ahmed Shanto
 
-Version: 1.0
+Version: 2.0
 ChangeLog:
 
 Two classes are defined below, Journalist and Editor.
